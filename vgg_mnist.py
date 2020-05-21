@@ -7,7 +7,7 @@ import matplotlib.image as mpimg
 import tensorflow as tf
 import numpy as np
 import utils
-import vgg16 as vgg19
+import vgg19_trainable as vgg19
 from tensorflow.examples.tutorials.mnist import input_data
 
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
@@ -18,7 +18,7 @@ images = tf.placeholder(tf.float32, [None, 28, 28, 1])
 true_out = tf.placeholder(tf.float32, [None, 10])
 train_mode = tf.placeholder(tf.bool)
 
-vgg = vgg26.Vgg16()
+vgg = vgg19.Vgg19()
 vgg.build(images, train_mode)
 
 print(vgg.get_var_count())
